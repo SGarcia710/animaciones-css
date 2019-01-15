@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transformacion Sesgado (skew)</title>
+  <style>
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color:white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container{
+      border: 1px solid red;
+    }
+    .container:hover .cuadrado{ /*Cuando paso por el container le hago algo al cuadrado */
+      /*El sesgado es esa inclinacion que puede sufrir nuestro elemento */
+      /* transform: skew(x,y) */
+      /* transform: skew(45deg , 45deg); un valor se asimila como horizontal */
+      transform: skew(10deg , 10deg);
+    }
+    .cuadrado{
+      width: 200px;
+      height: 200px;
+      background-color: #7dc900;
+      margin: 20px;
+      transition: 300ms;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado">
+      Hola mundo.
+    </div>
+  </div>
+</body>
+</html>
