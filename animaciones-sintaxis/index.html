@@ -14,17 +14,52 @@
     }
     .container{
       border: 1px solid red;
-
+      width: 100%;
     }
     .container:hover .cuadrado{ /*Cuando paso por el container le hago algo al cuadrado */
-
+      animation-play-state: paused;
     }
     .cuadrado{
       width: 200px;
       height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #7dc900;
       margin: 20px;
-      transition: 300ms;
+      border-radius: 50%;
+      /* transition: 300ms; */
+      animation-name: cuadrado;
+      animation-duration: 2s;
+      /* animation-delay: 1s; demora un segundo en lanzar la animacion */
+      /* animation-iteration-count: 2; numero de veces que quiero que se repita mi animacion */
+      animation-iteration-count: infinite ;
+      /* animation-timing-function: ease por defecto; suavizado */
+      /* animation-timing-function: ease-in; 
+      animation-timing-function: ease-out; 
+      animation-timing-function: ease-in-out; 
+      animation-timing-function: linear;  */
+      /* animation-timing-function: cubic-bezier(1,1,1,1);  */
+      /* animation-direction: normal por defecto; desde donde comienza la animacion en el keyframe */
+      /* animation-direction: reverse; empieza al reves */
+      /* animation-direction: alternate; rebote */
+      /* animation-fill-mode: ; Como sera el relleno de mi animacion, cual sera su valor final */
+      /* animation-fill-mode: forwards; Se queda como termina la animacion. */
+      /* animation-play-state: running; por defecto */
+      /* animation-play-state: paused; */
+      position: relative;
+      animation-direction: alternate;
+    }
+    @keyframes cuadrado {
+      /*que hare en el segundo de duracion de la animacion*/
+      0%{
+        /* opacity: 1; */
+        left: 0; /*Recuerda que para usar left right bottom o top tienes que tener una posicion absoluta o relativa. */
+      }
+      100%{
+        /* opacity: 0; */
+        left: calc(100% - 240px);
+      }
     }
   </style>
 </head>
