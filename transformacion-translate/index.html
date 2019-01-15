@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transformacion Translacion (translate)</title>
+  <style>
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color:white;
+      font-family: Arial, Helvetica, sans-serif;
+      perspective: 200px; /*cuan abierta va a estar o cuan cerrada estara nuestra perspectiva */
+      /* la perespectiva por defecto empieza en el centro. pero le puedo configurar el eje x y el y */
+      /* perspective-origin: x y; */
+      /* perspective-origin: top; */
+      /* perspective-origin: bottom; */
+      /* perspective-origin: left; */
+      /* perspective-origin: right; */
+      /* perspective-origin: top right; */
+      /* perspective-origin: top left; */
+      /* perspective-origin: bottom right; */
+      /* perspective-origin: bottom left; */
+    }
+    .container{
+      border: 1px solid red;
+    }
+    .container:hover .cuadrado{ /*Cuando paso por el container le hago algo al cuadrado */
+      /* transform: translate(x); */
+      /* transform: translate(x,y); */
+      /* transform: translate(-100px, -100px); */
+      /* transform: translateX(100px); */
+      /* transform: translateY(100px); */
+      /* transform: translateZ(100px); se aleja o acerca a mi pero no se nota si el canvas es 2d*/
+      /* transform: translateZ(100px); */
+      /* transform: translate3d(x, y, z); */
+      transform: translate3d(-100px, -100px, -100px);
+      
+    }
+    .cuadrado{
+      width: 200px;
+      height: 200px;
+      background-color: #7dc900;
+      margin: 20px;
+      transition: 300ms;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado">
+      Hola mundo.
+    </div>
+  </div>
+</body>
+</html>
