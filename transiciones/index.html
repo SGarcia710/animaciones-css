@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transiciones CSS</title>
+</head>
+<style>
+  .canvas{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    justify-items: center;
+    align-items: center;
+
+  }
+  .pelota {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    /* transition-property: width height background-color border-radius; 
+    Con esta propiedad lo que hago es solo cambiar los seleccionados aqui que 
+    se encuentren en la clase con los cambios a realizar. O si quiero ponerle todas
+    las nuevas propiedades de la otra clase, simplemente no se lo pongo*/
+    /* transition-duration: 1s; */
+    /* transition-delay: 1s; */
+    /* transition-timing-function: ease; esta es la configuracion por defecto de esta propiedad */
+    transition: width 1s ease;
+  }
+  .pelota:hover{
+    width: 200px;
+    height: 200px;
+    /* background-color: rgba(0,0,0,.5); */
+    /* border-radius: 0; */
+  }
+</style>
+<body>
+  <section class="canvas">
+    <div class="pelota b"></div>  
+  </section>
+</body>
+</html>
