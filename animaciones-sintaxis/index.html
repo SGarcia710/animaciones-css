@@ -34,21 +34,27 @@
       /* animation-delay: 1s; demora un segundo en lanzar la animacion */
       /* animation-iteration-count: 2; numero de veces que quiero que se repita mi animacion */
       animation-iteration-count: infinite ;
-      /* animation-timing-function: ease por defecto; suavizado */
-      /* animation-timing-function: ease-in; 
-      animation-timing-function: ease-out; 
-      animation-timing-function: ease-in-out; 
-      animation-timing-function: linear;  */
-      /* animation-timing-function: cubic-bezier(1,1,1,1);  */
       /* animation-direction: normal por defecto; desde donde comienza la animacion en el keyframe */
       /* animation-direction: reverse; empieza al reves */
       /* animation-direction: alternate; rebote */
+      animation-direction: alternate;
       /* animation-fill-mode: ; Como sera el relleno de mi animacion, cual sera su valor final */
       /* animation-fill-mode: forwards; Se queda como termina la animacion. */
       /* animation-play-state: running; por defecto */
       /* animation-play-state: paused; */
+      /* animation-timing-function: ease; por defecto. esto es el suavizado/aceleracion */
+      /* animation-timing-function: cubic-bezier(1,1,1,1);  */
+      /* animation-timing-function: ease-in; Hace que tengan aceleracion suave al inicio */
+      /* animation-timing-function: ease-out; Hace que tenga aceleracion suave al final */
+      /* animation-timing-function: ease-in-out; Hace que la animacion vaya lento al inicio y al final */
+      /* animation-timing-function: linear; Velocidad constante, sin aceleracion */
+      /* animation-timing-function: steps(60); 60 frames por segundo */
+      /* animation-timing-function: cubic-bezier(1,1,1,1); 4 paramentros, de -1 a 1. Configura la aceleracion de la animacion.  */
+      /* 1 = Linear */
+      /* cubic-bezier.com */
+      animation-timing-function: cubic-bezier(.75,-0.31,.33,1.4 );
       position: relative;
-      animation-direction: alternate;
+
     }
     @keyframes cuadrado {
       /*que hare en el segundo de duracion de la animacion*/
