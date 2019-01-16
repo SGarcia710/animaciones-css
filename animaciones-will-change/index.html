@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will Change</title>
+  <style>
+    body{
+      display: flex;
+      /* align-items: center; */
+      align-items: flex-start;
+      justify-content: center;
+      height: 100vh;
+      color:white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container{
+      border: 1px solid red;
+      width: 100%;
+    }
+    .container:hover .cuadrado{ /*Cuando paso por el container le hago algo al cuadrado */
+      /* animation-play-state: paused; */
+    }
+    .cuadrado{
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #7dc900;
+      margin: 20px;
+      border-radius: 50%;
+      /* transition: 300ms; */
+      /* animation-name: cuadrado, rebote; */
+      /* al tener doble animacion, separada por coma, 
+      todas las propiedades de animacion ahora tambien 
+      recibiran doble valor, para cada animacion.
+      si se deja un solo valor, todas toman ese valor. */
+      animation-duration: 3s, .3s;
+      /* animation-delay: 1s; demora un segundo en lanzar la animacion */
+      /* animation-iteration-count: 2; numero de veces que quiero que se repita mi animacion */
+      animation-iteration-count: infinite, 10 ;
+      /* animation-direction: normal por defecto; desde donde comienza la animacion en el keyframe */
+      /* animation-direction: reverse; empieza al reves */
+      /* animation-direction: alternate; rebote */
+      animation-direction: alternate;
+      /* animation-fill-mode: ; Como sera el relleno de mi animacion, cual sera su valor final */
+      /* animation-fill-mode: forwards; Se queda como termina la animacion. */
+      /* animation-play-state: running; por defecto */
+      /* animation-play-state: paused; */
+      /* animation-timing-function: ease; por defecto. esto es el suavizado/aceleracion */
+      /* animation-timing-function: cubic-bezier(1,1,1,1);  */
+      /* animation-timing-function: ease-in; Hace que tengan aceleracion suave al inicio */
+      /* animation-timing-function: ease-out; Hace que tenga aceleracion suave al final */
+      /* animation-timing-function: ease-in-out; Hace que la animacion vaya lento al inicio y al final */
+      /* animation-timing-function: linear; Velocidad constante, sin aceleracion */
+      /* animation-timing-function: steps(60); 60 frames por segundo */
+      /* animation-timing-function: cubic-bezier(1,1,1,1); 4 paramentros, de -1 a 1. Configura la aceleracion de la animacion.  */
+      /* 1 = Linear */
+      /* cubic-bezier.com */
+      /* animation-timing-function: cubic-bezier(.75,-0.31,.33,1.4 ); */
+      position: relative;
+      animation-timing-function: linear, ease-in-out;
+      transition: 3s;
+      /*will-change le dice al navegador con anticipacion que cambios habran sobre el objeto
+      de manera que el se optimiza al cargar la pagina para cuando la animacion vaya a ocurrir */
+      will-change: opacity, transform; 
+    }
+    .cuadrado:hover {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    @keyframes cuadrado {
+      /*que hare en el segundo de duracion de la animacion*/
+      0%{
+        /* opacity: 1; */
+        left: 0; /*Recuerda que para usar left right bottom o top tienes que tener una posicion absoluta o relativa. */
+      }
+      100%{
+        /* opacity: 0; */
+        left: calc(100% - 240px);
+      }
+    }
+    @keyframes escalera {
+      from{
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(500px)
+      }
+    }
+    @keyframes rebote {
+      from{ /*0%*/
+        transform: translateY(0);
+      }
+      to{ /*100%*/
+        transform: translateY(100px) scale(1,.8);/*100% para el eje x y 80% para el Y */
+
+      }
+    } 
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado" id="cuadrado">
+      Hola mundo.
+    </div>
+  </div>
+  <script>
+    const $cuadrado = document.getElementById('cuadrado');
+    // $cuadrado.addEventListener('nombre del evento', funcion cuando el evento ocurra);
+    // $cuadrado.addEventListener('animationstart', (event) =>{
+    // $cuadrado.addEventListener('animationiteration', (event) =>{
+    $cuadrado.addEventListener('animationend', (event) =>{
+      // console.log(event.animationName);
+      if(event.animationName ==='rebote'){
+        $cuadrado.style.animationName = 'cuadrado escalera';
+        $cuadrado.style.animationDuration = '3s';
+      }
+    });
+  </script>
+</body>
+</html>
