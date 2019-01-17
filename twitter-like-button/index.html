@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>twitter like</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+        .like {
+            cursor: pointer;
+            /* width: 100px;
+            height: 100px; */
+            width: 50px;
+            height: 50px;
+            background-image: url('corazon.png');
+            background-size: 1450px 50px;
+            /*retina display muestra doble densidad de pixeles, es decir que para que
+            se vea bien una imagen 100x100, debo mandarla desde css como 50x50, 
+            y las retina display la mostraran bien. */
+        }
+        .like.is-liked {
+            animation-name: like;
+            animation-duration: .8s;
+            /* 2900 / 29 = 100px  */
+            animation-timing-function: steps(28);
+            /* background-position: -2800px 0; */
+            /* background-position: right; puedo usar cualquiera de estas dos o que conserve la posicion final*/
+            animation-fill-mode: forwards; 
+        }
+        @keyframes like {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: right;
+                /* background-position: -2800px 0; */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tweet-box">
+        <div class="like" id="like"></div>
+    </div>
+    <script>
+        const $like = document.getElementById('like');
+        $like.addEventListener('click', (event)=>{
+            // $like.classList.add('is-liked');
+            $like.classList.toggle('is-liked');
+            //toggle lo que hace es agregar-quitar en cada click.
+            //Ejemplo: click 1: agregar, click 2: quitar
+        });
+    </script>
+</body>
+</html>
