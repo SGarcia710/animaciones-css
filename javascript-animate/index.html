@@ -54,7 +54,7 @@
     const $pelota = document.getElementById('pelota');
 
     // element.animate(keyframes = [array], option = {object});
-    $pelota.animate([
+    const animation = $pelota.animate([
       //from
       {
         transform: 'translateX(0)'
@@ -80,7 +80,28 @@
       iterations: Infinity,
       fill: 'forwards',
       iterationStart: 0
-    })
+    });
+    const $playButton = document.getElementById('play');
+    const $pauseButton = document.getElementById('pause');
+    const $stopButton = document.getElementById('stop');
+    const $reverseButton = document.getElementById('reverse');
+
+    // el elemento animation sacado del metodo animate, cuenta con 
+    // diferentes metodos internos, como los que se ven a continuacion.
+    // Se pueden explorar escribiendo en la consola animation. y se desplegara la lista de 
+    // funcionas internas de este tipo de objetos.
+    $playButton.addEventListener('click', (event) => {
+      animation.play();
+    });
+    $pauseButton.addEventListener('click', (event) => {
+      animation.pause();
+    });
+    $stopButton.addEventListener('click', (event) => {
+      animation.cancel();
+    });
+    $reverseButton.addEventListener('click', (event) => {
+      animation.reverse();
+    });
   </script>
 </body>
 </html>
