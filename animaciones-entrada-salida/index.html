@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animaciones de entrada y salida</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .cuadrado{
+            width: 200px;
+            height: 200px;
+            background: #7dc900;
+            /* animation: name time estado; */
+            animation: animationOut .8s forwards;
+            /*Forwards mantiene el estado final */
+            /* animation-iteration-count: infinite; */
+        }
+        @keyframes animationIn{
+            0%{
+                transform: translateY(-100vh);
+            }
+            60%{
+                transform: translateY(5vh);
+            }
+            75%{
+                transform: translateY(-3vh);
+            }
+            90%{
+                transform: translateY(2vh);
+            }
+            /*No es necesario poner el 100% porque el al final por defecto
+            vuelve a su posicion normal */
+        }
+        @keyframes animationOut {
+            0%{
+                transform: translateY(2vh);
+            }
+            60%{
+                transform: translateY(-3vh);
+            }
+            75%{
+                transform: translateY(5vh);
+            }
+            100%{
+                transform: translateY(-100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cuadrado"></div>
+    
+</body>
+</html>
